@@ -14,6 +14,12 @@ import reactor.core.publisher.Mono;
 
 import java.nio.charset.StandardCharsets;
 
+/**
+ * Filter class in Api Gateway, used to validate token before call any api from any service
+ * @author nambisv
+ * @since 11 Nov 2025
+ */
+
 @Component
 public class JWTAuthenticationFilter extends AbstractGatewayFilterFactory<JWTAuthenticationFilter.Config> {
     @Autowired
@@ -26,6 +32,11 @@ public class JWTAuthenticationFilter extends AbstractGatewayFilterFactory<JWTAut
         super(Config.class);
     }
 
+    /**
+     * method used to validate token, will be called once per api as it is added in application.properties
+     * @param config
+     * @return
+     */
     @Override
     public GatewayFilter apply(JWTAuthenticationFilter.Config config) {
         return ((exchange, chain) -> {
@@ -37,11 +48,8 @@ public class JWTAuthenticationFilter extends AbstractGatewayFilterFactory<JWTAut
                 if(token != null && token.startsWith("Bearer ")){
                     token = token.substring(7);
                 }
-                try{
-                    jwtUtils.isTokenValid(token);
-                }catch (Exception e){
+                if(!jwtUtils.isTokenValid(token))
                     return this.onError(exchange,"Invalid Auth Token");
-                }
             }
             return chain.filter(exchange);
         });

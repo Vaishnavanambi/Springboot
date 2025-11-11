@@ -19,13 +19,11 @@ import java.util.List;
 
 @SpringBootApplication
 @RequiredArgsConstructor
-@RestController
-@RequestMapping("/api")
 public class LearningApplication {
     private final AddNewKPI addNewKPI;
     public static void main(String[] args) {
         SpringApplication.run(LearningApplication.class, args);
-        Parent parent = new Parent("Seenivasan", "Virutha");
+       /* Parent parent = new Parent("Seenivasan", "Virutha");
         Student student = new Student(1,"Nambi","seenivasanv50@gmail.com",9952203331L, parent);
         System.out.println(student);
         Student clone = (Student) student.clone();
@@ -60,18 +58,6 @@ public class LearningApplication {
         CommandRunner commandRunner = new CommandRunnerProxy("Admin","1234");
         CommandRunner commandRunner1 = new CommandRunnerProxy("qwewqw","1234");
         commandRunner.runCommand("rm -rf");
-        commandRunner1.runCommand("rm -rf");
-    }
-
-
-    @PostMapping("/events")
-    public ResponseEntity<String> printEventsQuery(@RequestBody List<EventsData> data){
-        addNewKPI.printEventsQuery(data);
-        return new ResponseEntity<>("SUCCESS", HttpStatus.OK);
-    }
-
-    @GetMapping("/get")
-    public ResponseEntity<String> getMethod(){
-        return new ResponseEntity<>("get method", HttpStatus.OK);
+        commandRunner1.runCommand("rm -rf");*/
     }
 }
