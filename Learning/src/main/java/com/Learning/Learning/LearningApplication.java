@@ -11,6 +11,7 @@ import com.Learning.Learning.DesignPattern.Structural.Proxy.CommandRunnerProxy;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,6 +20,7 @@ import java.util.List;
 
 @SpringBootApplication
 @RequiredArgsConstructor
+@EnableDiscoveryClient
 public class LearningApplication {
     private final AddNewKPI addNewKPI;
     public static void main(String[] args) {
