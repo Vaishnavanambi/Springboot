@@ -1,0 +1,76 @@
+Design Pattern:
+==============
+    * A design pattern is a proven, reusable solution to a common problem that occurs in software design.
+    * Instead of reinventing the wheel every time you face a particular kind of design issue, you can apply a pattern that captures best practices and proven strategies used by experienced developers.
+
+Adv:
+====
+    * Helps make code more flexible, reusable, and maintainable.
+
+
+Categories of Design Patterns:
+==============================
+    * Creational
+    * Structural
+    * Behavioural
+
+Creational Design Pattern:
+=========================
+    * used to create or controls the creation of object.
+
+    1. Prototype
+    2. Singleton
+    3. Factory
+    4. Builder
+
+
+Prototype:
+=========
+    * used when we need to clone the object.
+    Ex:Lets say we have the some object with more than 100 fields in it, now we need to clone of the object.
+    Instead of creating new object and setting all fields of old object ot new object.
+    we can use clone() to create the clone, using this we can reduce the coding complexity
+
+Singleton:
+==========
+    * used when we need only one instance of object.
+    Ex:Lets say when we DBconnection, since only one DB connection is enough we can go for singleton.
+    What if we made DB connection everytime when we update or store or fetch data?
+    Since DB connection is costlier operation it may result is performance issue.
+
+Factory:
+========
+    * used to (abstracts Object creation)create object without exposing instantiation logic and factory will decide which subclass object to create.
+    Ex: Let say we have Circle and Triangle class which is subclass of shape interface, now if we want to create Circle or triangle object
+    we explicitly mention Shape sh = new Circle() or new Triangle(), to abstract the creation logic we use Factory Pattern.
+
+Builder:
+========
+    * used to create complex object step by step.
+    Ex: We have a class which has 100+ fields, we have to set fields by setter or use constructor to initialize it,
+    but for 100+ fields, if we try to set fields it will take 100+ lines or if we use constructor we don't know which field we are setting.
+    Some fields may be null also passing null in constructor will not look good also.
+
+
+Structural Design Pattern:
+=========================
+    * It is a way to combine or arrange different objects and classes to form complex or bigger structure.
+
+    1. Decorator
+
+
+Decorator Design Pattern:
+=========================
+    * used to add more functionalities to existing object without modifying its structure.
+    Ex: Lets say we have Burger class with two children veg and chicken burger, now we want to add cheese to burger then,
+    do we need to create another class with cheeseVeg or chicken and in future we are adding mayo then do we need to create
+    cheeseVeg, cheeseMayoVeg, MayoVeg and CheeseChicken...
+    To solve this problem we can use decorator pattern.
+
+Proxy Design Pattern:
+=====================
+    * used as intermediate to control the access of original object(logging,security etc..)
+    Ex: Lets say whenever user try to run command, we need to check if he is a valid user to run the certain command,
+    if he is not a valid user then there is not need to create the original object as it may be costlier operation.
+    Ex: Whenever user tries to access certain service, we need to log the operations, but we don't want our original object to be changed
+    To Solve these type of things we can use Proxy Pattern
