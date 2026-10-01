@@ -37,6 +37,7 @@ public class JWTAuthenticationFilter extends AbstractGatewayFilterFactory<JWTAut
      * @param config
      * @return
      */
+    // hi i made a change
     @Override
     public GatewayFilter apply(JWTAuthenticationFilter.Config config) {
         return ((exchange, chain) -> {
